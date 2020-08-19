@@ -1,0 +1,52 @@
+{% extends 'home.html' %} {% block dashboard %}
+
+<div class="container">
+    <br><br>
+    <form action="/create_details/" method="POST">
+        {% csrf_token %}
+        <div class="row">
+        	<div class="col-md-4">
+                <label>DC_No</label>
+                 <input type="number" name="dc_no">
+            </div>
+            <div class="col-md-4">
+                <label>Select Material</label>
+                <select name="m_id" class="form-control">
+                    {% for mt in mtype %}
+                    <option value="{{mt.id}}">{{mt.m_type}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label>Mtr/pcs</label>
+               <input type="number" name="m_length">
+            </div>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div class="container">
+	<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">DC_no</th>
+      <th scope="col">Mt_name</th>
+      <th scope="col">mtr/pcs</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for details in all_details %}
+    <tr>
+      <td>{{details.dc_no}}</td>
+      <td>{{details.m_name}}</td>
+      <td>{{details.m_length}}</td>
+    </tr>
+    {% endfor%}
+  </tbody>
+
+</table>	
+</div>
+{% endblock %}

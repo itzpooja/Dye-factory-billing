@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bill</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style type="text/css">
+		.container1{
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="containermain">
+	<div class="container1">
+		<h1 style="margin-left: 500px">HANUMAN DYEING</h1>
+		<h3 style="margin-left: 570px">Bangalore</h3>
+	</div>
+	<div class="container2">
+		<table class="table">
+  <thead>	
+    <tr>
+      <th scope="col">Dc_no</th>
+      <th scope="col">Material Type</th>
+      <th scope="col">mtr/pcs</th>
+      <th scope="col">Rate</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for details, price in my_object %}
+    <tr>
+      <td>{{details.dc_no}}</td>
+      <td>{{details.m_name.m_type}}</td>
+      <td>{{details.m_length}}</td>
+      <td>{{details.m_name.mt_price}}</td>
+      <td>{{price}}</td>
+    </tr>
+    {% endfor%}
+  </tbody>
+</table>	
+</div>
+</table>
+	</div>
+	<div class="conatiner3" style="margin-left: 1160px ">
+		<h1>Total</h1>
+		<label style="margin-left: 10px">{{total_price}}</label>
+	</div>
+</div>
+</body>
+</html>
